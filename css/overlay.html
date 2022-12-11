@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <title> Media queries </title>
+        <style>
+             .box {
+                 height: 500px;
+                 width: 700px;
+                 background-color: yellow;
+                 font-size: 40px;
+             }
+             @media only screen and (min-width: 900px) {
+                 .box {
+                     background-color: red;
+                     font-size: 45px;
+                 }
+             }
+             @media only screen and (min-width: 1200px) {
+                 .box {
+                     background-color: green;
+                     font-size: 50px;
+                 }
+             }
+            /* @font-face {
+                font-family: 'Roboto';
+                src: url('./fonts//Roboto-Black.eot');
+                src: url('./fonts//Roboto-Black.eot?#iefix') format('embedded-opentype'),
+                     url('./fonts//Roboto-Black.woff2') format('woff2'),
+                     url('./fonts//Roboto-Black.woff') format('woff'),
+                     url('./fonts//Roboto-Black.ttf') format('truetype');
+                font-weight: 900;
+                font-style: normal;
+                font-display: swap;
+             }*/
+   /*          @font-face {
+                 font-family: 'Roboto';
+                 src: url('./fonts//Roboto-Black.ttf');
+             }
+h1 {
+    font-family: Roboto;
+}*/
+* {
+    font-family: sans-serif;
+}             
+             
+        </style>
+    </head>
+    <body>
+        <div class="box">
+           <h1>900 px dan katta bolsa qizil, 1200 px dan katta bolsa yashil yonadigan media</h1> 
+        </div>
+    </body>
+</html> 

@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <title>Flex</title>
+        <style>
+            .flex-container {
+                display: flex;
+                padding: 20px;
+                background-color: #025955;
+                border-radius: 10px;
+                /*flex-direction: row;
+                flex-wrap: wrap-reverse;*/
+               /* flex-flow: row wrap;
+                justify-content: space-evenly;
+                align-items: stretch;
+                align-content:space-evenly;
+                height: 900px;*/
+            }
+            .flex-item {
+                padding: 60px 100px;
+                background-color: #fde8cd;
+                font-weight: bold;
+                margin: 10px;
+                border-radius: 10px;
+                
+            }
+            .order-5 {
+                order: 5;
+            }
+            .order-4{
+                order: 4
+            }
+            .oder--1 {
+                order: -1000000000000000;
+            }
+            .flex-item {
+                flex-grow: 1;
+                flex-shrink: 2;
+            }
+                             /*Flex haqida umumiy tushuncha
+                        "Flex-direction" - bu asosiy o'qning yo'nalishini belgilab beradi
+                    Qiymatlari : 
+            1. "row" (default) -  elementlarni chapdan o'nga qarab joylashtiradi.
+            2. "row-reverse" - elementlarni o'ngdan chapga qarab joylashtiradi. 
+            3. "column" - elementlarni tepadan pastga qarab joylashtiradi.
+            4. "column-reverse" - elementlarni pastdan tepaga qarab joylashtiradi.
+                        "Flex-wrap" - odatda flex elementlarini bitta liniyada joylashadi lekin
+                        flex-wrap yordamida bu holatni o'zgartirish mumkin.
+                    Qiymatlari:
+            1. "nowrap" (default) - hamma flex elementlarimzi bitta liniyada joylashadi.
+            2. "wrap" - elementlar tepadan pastga bir necha liniyaga bo'linib joylashadi.
+            3. "wrap-reverse" - elementlar pastdan tepaga bir nechta liniyaga bo'linib joylashadi.
+                        "Flex-flow" -  bu direction va wrap qiymatlarini jamlash imkoni beradi.
+                    Misol uchun : 1. flex-direction: row-reverse;
+                                  2. flex-wrap: wrap;
+                                  ushbu kodni bir qatorda yozish imkonini beradi, ya'ni dastlab,
+                                  direction va wrap qiymatlari beriladi: 
+                                  3. flex-flew: row-reverse wrap;
+                        "Justify content" - bu asosiy o'q bo'ylab elementlarni joylashuvini belgialydi
+                        va qo'shimcha bo'sh joyni taqsimlashga yordam beradi.
+                    Qiymatlari:
+            1. "flex-start" (default) - elementlarmiz flex conatiner boshida joylashadi.
+            2. "flex-end" - elementlarmiz flex conatiner oxirida joylashadi.
+            3. "center" - elementlarmiz flex conatiner markazida joylashadi.
+            4. "space-between" - elementlarmiz flex conatiner bo'yicha teng taqsimlanadi. BIrinchi
+                elementimiz container boshida, oxirgi elementimiz container oxirida joylashadi.
+            5. "space-around" - elementlarmiz flex conatiner bo'yicha teng taqsimlandi va har bir element
+                atrofida teng masofa bo'ladi. Faqatgina birinchi, oxirgi element va container chegaralari 
+                orasidagi masofa boshqa masofalardan farq qiladi.
+            6. "space-evenly" - elementlarmiz flex conatiner bo'yicha teng taqsimlanadi va har bir element
+                atrofida teng masofa bo'ladi. 
+                        "Align-items" - kesuvchi o'qi (cross axis) bo'ylab elementlarni joylashuni belgilaydi.
+                    Qiymatlari:
+            1. "strech" (default) elementlarmiz "flex-container"ni to'ldirish uchun cho'ziladi.
+            2. "center" - elementlarmiz kesuvchi o'qni markazida joylashadi.
+            3. "flex-start" - elementlarmiz kesuvchi o'qni boshida joylashadi.
+            4. "flex-end" - elementlarmiz kesuvchi o'qni oxirida joylashadi.
+                        "Align-content"
+                    Qiymatlari:
+            1. "strech" (default) flex liniyalarimiz containerni to'ldirish uchun cho'ziladi.   
+            2. "flex-start" (default) - flex liniyalarimiz conatiner boshida joylashadi.
+            3. "flex-end" - flex liniyalarimiz conatiner oxirida joylashadi.
+            4. "center" - flex liniyalarimiz conatiner markazida joylashadi.
+            5. "space-between" - flex liniyalarimiz conatiner bo'yicha teng taqsimlanadi. BIrinchi
+                liniyamiz container boshida, oxirgi liniyamiz container oxirida joylashadi.
+            6. "space-around" - flex liniyalarimiz conatiner bo'yicha teng taqsimlandi va har bir liniya
+                atrofida teng masofa bo'ladi. Faqatgina birinchi, oxirgi liniya va container chegaralari 
+                orasidagi masofa boshqa masofalardan farq qiladi.
+            7. "space-evenly" - flex liniyalarimiz conatiner bo'yicha teng taqsimlanadi va har bir liniya
+                atrofida teng masofa bo'ladi. 
+                                "Flex-container" ning elementlari (Flex-items) ga still berish:
+                        "Order" - flex container ichida flex items odatiy oqimga (flow) ko'ra joylashadi,
+                                ya'ni HTML kodda birinchi yozilgan flex item veb sahifada ham birirnchi keladi, lekin
+                                "order" xossasi bu oqimini o'zgartirishi mumkin va flex items ketma-ketligini belgilab
+                                beradi.
+                                 ! Note (eslatma) : order xossasi son ko'rinishidagi qiymat qabul qiladi va qiymat
+                                             qancha kichik bo'lsa, flex item boshqa "item"lardan oldinroqda keladi.
+                        "Flex-grow" - "flex-item"ni kerak payti o'z o'lchovini qanday oshirishini belgilab beradi. U 
+                                son ko'rinishidagi qiymat qabul qilib, bo'sh qolgan joyni qancha qismini egallashni 
+                                ko'rsatib beradi. Default qiymati "0" hisoblanadi. 
+                        "Flex-shrink" - "flex item"ni kerak payti o'z o'lchovini qanday kichraytirishini belgilab 
+                                beradi. U son ko'rinishida qiymat qabul qilib, joy qolmayotgan payti element qanday
+                                suratda kichrayishini belgilab beradi. Default qiymati "1" hisoblanadi.                                    
+                        "Flex-basis" - flex item uchun boshlang'ich o'lchovni belgilab beradi
+                        "Flex" - "flex-grow"  "flex-shrink"  "flex-basis" uchun qisqartma (shorthand) hisoblanadi.
+                        "Align-self" - flex container ichidagi ko'rsatilgan "flex item"ni joylashuvini belgilab
+                        beradi. Boshqacha qilib aytganda flex item uchun align items hisoblanadi.
+                    Qiymatlari:
+            1. "auto" (default) - elementimiz ota-onasining (parent) align-items xossasini meros qilib oladi.
+            2. "stretch" - elementimiz "flex container"ni to'ldirish uchun cho'ziladi.
+            3. "center" - elementimiz kesuvchi o'qning markazida joylashadi.
+            4. "flex-start" - elementimiz kesuvchi o'qning boshida joylashadi.
+            5. "flex-end" - elementimiz kesuvchi o'qning oxirida joylashadi. 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+            */       
+            </style>
+    </head>
+    <body>
+        <div class="flex-container">
+            <div class="flex-item order-5">
+                Flex item 1
+            </div>
+            <div class="flex-item order-4">
+                Flex item 2
+            </div>
+            <div class="flex-item oredr--1">
+                Flex item 3
+            </div>
+        </div>
+    </body>
+</html>
